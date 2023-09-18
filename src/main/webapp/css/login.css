@@ -1,0 +1,278 @@
+/**
+ * Axelor Business Solutions
+ *
+ * Copyright (C) 2005-2021 Axelor (<http://axelor.com>).
+ *
+ * This program is free software: you can redistribute it and/or  modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+ *** NOTE: EDITED FOR EXCENIT USE ***
+
+ */
+body {
+  height: 100%;
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  display: block;
+  background-color: rgb(230,230,230);
+  padding-top: 60px;
+}
+
+@media (max-width: 979px) {
+  body {
+      padding-top: 20px;
+  }
+}
+
+header .navbar .brand-logo {
+  float: left;
+}
+
+header .navbar .brand-logo img {
+  height: 32px;
+  margin-top: 4px;
+}
+
+.panel {
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  background-color: #fff;
+}
+
+.panel .panel-header {
+  padding: 10px;
+  text-align: center;
+}
+
+.panel .panel-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.panel .panel-body {
+  padding: 14px;
+  overflow: hidden;
+}
+
+.panel {
+  margin-bottom: 18px;
+}
+
+.login-panel {
+  float: inherit !important;
+  margin: auto !important;
+  width: 450px;
+  border: 0;
+  box-shadow: none;
+}
+
+.alert {
+  width: 400px;
+}
+
+@media (min-width: 1200px) {
+  .alert,
+  .login-panel {
+    width: 450px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .alert,
+  .login-panel {
+    width: 100%;
+  }
+}
+
+.login-panel .panel-header {
+  padding: 22px;
+}
+
+.login-panel .panel-body {
+  padding: 0;
+}
+
+.login-panel .form-fields,
+.login-panel .form-footer {
+  padding: 22px;
+}
+
+.login-panel .form-fields {
+  margin-top: 8px;
+}
+
+.login-panel .form-footer {
+  background-color: #fff;
+}
+
+.login-panel .form-footer button {
+  width: 100%;
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+.form-footer-30 button{
+  width: 30%;
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+#email-form-footer{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#login-form {
+  margin: 0;
+}
+
+#login-form .add-on{
+   border-radius: 5px 0px 0px 5px !important;
+}
+
+.fit-in-password {
+  position: sticky;
+  float: right;
+  margin-top: -42px;
+  padding-right: 12px;
+  z-index: 2 !important;
+  cursor: pointer;
+}
+
+.loading {
+  width: 1.5rem;
+  height: 1.5rem;
+
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"]{
+    border-radius: 0px 5px 5px 0px !important;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"],
+#login-form .add-on {
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  height: 20px;
+}
+
+#login-form .input-prepend {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+#search-form .input-prepend {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+#login-form .input-prepend-password {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+#login-form .input-prepend input {
+  width: calc(100% - 60px);
+}
+
+#search-form .input-prepend input {
+  width: calc(100% - 25px);
+}
+
+#search-form input[type="text"] {
+  border-radius: 5px !important;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  height: 20px;
+}
+
+div.panel-body >div > div.passwordResetInfoBox{
+  padding: 6px;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.forgotPasswordLabel {
+  font-weight: bold;
+}
+
+#login-form .input-prepend select {
+  height: 34px;
+  width: calc(100% - 38px);
+}
+
+body > footer {
+  position: relative;
+  margin-top: 28px;
+  height: 28px;
+  text-align: center;
+}
+
+body > footer > p {
+  margin: 0;
+  padding: 6px 10px;
+}
+
+body > footer > p,
+body > footer > p a,
+body > footer > p a:hover,
+body > footer > p a:active,
+body > footer > p a:visited {
+  color: black;
+}
+
+.alert {
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+.alert h4 {
+  margin-bottom: 8px;
+}
+
+#social-buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px;
+}
+
+#social-buttons button {
+  display: flex;
+  flex: 1;
+  padding: 8px 10px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+#social-buttons .social-logo {
+  height: 18px;
+  width: 18px;
+}
+
+#social-buttons .social-title {
+  padding-left: 8px;
+}
+
+.btn{
+    border-radius: 5px !important;
+}
