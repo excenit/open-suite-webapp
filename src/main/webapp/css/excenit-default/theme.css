@@ -242,8 +242,3 @@ header .dropdown-menu > li > a:hover, header .dropdown-menu > li > a:focus, head
 .slickgrid .slick-header-column {
     border-right: none !important;
 }
-
-/* Change icon color to excenit color*/
-.nav-tree li > a > .nav-icon{
-    background-color: rgb(105,105,105) !important;
-}
