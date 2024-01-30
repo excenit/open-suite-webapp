@@ -28,7 +28,8 @@
 <%@ page import="com.axelor.i18n.I18n" %>
 <%@ page import="com.axelor.auth.AuthService" %>
 <%@ page import="com.axelor.app.AppSettings" %>
-<%@ page import="com.axelor.auth.pac4j.AuthPac4jModule" %>
+<%@ page import="com.axelor.inject.Beans" %>
+<%@ page import="com.axelor.auth.pac4j.AuthPac4jInfo" %>
 <%@ page import="org.pac4j.http.client.indirect.FormClient" %>
 <%
 
@@ -68,7 +69,8 @@ Map<String, String> tenants = (Map) session.getAttribute("tenantMap");
 String tenantId = (String) session.getAttribute("tenantId");
 
 AppSettings settings = AppSettings.get();
-String callbackUrl = AuthPac4jModule.getCallbackUrl();
+AuthPac4jInfo authPac4jInfo = Beans.get(AuthPac4jInfo.class);
+String callbackUrl = authPac4jInfo.getCallbackUrl();
 
 %>
 <!DOCTYPE html>
@@ -129,6 +131,9 @@ String callbackUrl = AuthPac4jModule.getCallbackUrl();
                   <i class="fa fa-eye-slash" aria-hidden="true"></i>
                 </span>
               </div>
+               <div class="text-error" style="margin-bottom: 10px;" id="passNotDiffError">
+                    <strong><%= newPasswordMustBeDifferent %></strong>
+               </div>
               <div class="input-prepend">
                 <span class="add-on"><i class="fa fa-lock"></i></span>
                 <input type="password" id="confirmPasswordId" name="confirmPassword" placeholder="<%= confirmPassword %>"
@@ -143,6 +148,9 @@ String callbackUrl = AuthPac4jModule.getCallbackUrl();
                   <i class="fa fa-eye-slash" aria-hidden="true"></i>
                 </span>
               </div>
+              <div class="text-error" id="passNotMatchingError">
+                <strong><%= confirmPasswordMismatch %></strong>
+              </div>
               <% if (tenants != null && tenants.size() > 1) { %>
               <div class="input-prepend">
                 <span class="add-on"><i class="fa fa-database"></i></span>
@@ -155,7 +163,7 @@ String callbackUrl = AuthPac4jModule.getCallbackUrl();
               <% } %>
             </div>
             <div class="form-footer">
-              <button class="btn btn-primary" type="submit"><%= confirmSubmit %></button>
+              <button class="btn btn-primary" id="submitButton" type="submit"><%= confirmSubmit %></button>
             </div>
           </form>
         </div>
@@ -167,6 +175,26 @@ String callbackUrl = AuthPac4jModule.getCallbackUrl();
     </footer>
 
     <script type="text/javascript">
+
+    function checkPasswordInputs() {
+      var passwordElem = document.getElementById("passwordId");
+      var newPasswordElem = document.getElementById("newPasswordId");
+      var confirmPasswordElem = document.getElementById("confirmPasswordId");
+      if(passwordElem.value !== newPasswordElem.value){
+        $('#passNotDiffError').hide();
+        document.getElementById('submitButton').disabled = false;
+      }else{
+        $('#passNotDiffError').show();
+        document.getElementById('submitButton').disabled = true;
+      }
+      if(newPasswordElem.value === confirmPasswordElem.value){
+        $('#passNotMatchingError').hide();
+        document.getElementById('submitButton').disabled = false;
+      }else{
+        $('#passNotMatchingError').show();
+        document.getElementById('submitButton').disabled = true;
+      }
+    }
 
     $(function(){
 
@@ -185,16 +213,6 @@ String callbackUrl = AuthPac4jModule.getCallbackUrl();
          $('#iconHidePassword').hide(); //Hide the hide password button
          $('#iconHideNewPassword').hide(); //Hide the hide new password button
          $('#iconHideConfirmPassword').hide(); //Hide the hide confirm password button
-      }
-
-      function checkPasswordInputs() {
-      var passwordElem = document.getElementById("passwordId");
-      var newPasswordElem = document.getElementById("newPasswordId");
-      var confirmPasswordElem = document.getElementById("confirmPasswordId");
-      newPasswordElem.setCustomValidity(passwordElem.value === newPasswordElem.value
-          ? "<%= newPasswordMustBeDifferent %>" : "");
-      confirmPasswordElem.setCustomValidity(newPasswordElem.value !== confirmPasswordElem.value
-          ? "<%= confirmPasswordMismatch %>" : "");
       }
 
       function showPassword(iconShow,iconHide,passwordId){
