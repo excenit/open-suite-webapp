@@ -32,7 +32,7 @@ public class CheckCredentialsInRptdesign extends DefaultTask {
   private static final String ERROR_ODA_PASSWORD =
       "\nThe BIRT file %s contains ODA Password credential.";
 
-  private List<String> errorList = new ArrayList<>();
+  private final List<String> errorList = new ArrayList<>();
 
   public FileTree getFiles() {
     return files;

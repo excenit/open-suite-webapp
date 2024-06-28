@@ -22,7 +22,7 @@ public class CheckEOLCharsInCsv extends DefaultTask {
   private static final String ERROR_EOL_LF =
       "The CSV file %s has LF (Unix) used as line separator. It should be CR/LF.";
 
-  private List<String> errorList = new ArrayList<>();
+  private final List<String> errorList = new ArrayList<>();
 
   public FileTree getFiles() {
     return files;

@@ -131,7 +131,7 @@ public class GenerateAosChangelog extends DefaultTask {
     changelogFile.delete();
 
     try (FileOutputStream fos = new FileOutputStream(changelogFile)) {
-      fos.write((newChangelog + contentBuilder.toString()).getBytes());
+      fos.write((newChangelog + contentBuilder).getBytes());
       fos.flush();
     }
   }
